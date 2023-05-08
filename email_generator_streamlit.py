@@ -4,7 +4,8 @@ import streamlit as st
 
 
 
-def generate_email(model, recipient_role, tone1, tone2, email_purpose, context, email_to_respond, user_note):
+def generate_email(api_key, model, recipient_role, tone1, tone2, email_purpose, context, email_to_respond, user_note):
+    openai.api_key = api_key
     if email_to_respond.strip() == "":
         messages_input = [
             {"role": "system", "content": "You are a Personal Assistant; your task is to assist with drafting thoughtful and direct emails. You possess excellent communication skills, ensuring that the messages you create are clear, concise, and well-organized. You are reliable, resourceful, and always focused on helping your user achieve their goals."},
